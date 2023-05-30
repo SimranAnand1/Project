@@ -2,7 +2,7 @@ import {toast} from "react-toastify";
 import axiosInstance from "./axiosInstance";
 
 export const submitData = (data) => axiosInstance
-    .post("image-to-text", data)
+    .post("predict", data)
     .then(response => response.data)
     .catch(error => {
         console.error(error);

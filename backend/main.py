@@ -1,6 +1,6 @@
 import os
 
-from fastapi import FastAPI, UploadFile, Form, HTTPException
+from fastapi import FastAPI, Request, UploadFile, Form, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 import uvicorn
@@ -20,7 +20,7 @@ app.add_middleware(
 
 
 @app.middleware("http")
-async def log_requests(request, call_next):
+async def log_requests(request: Request, call_next):
     # Log the request information
     logger.info(f"Received request: {request.method} {request.url.path}")
 
@@ -28,14 +28,6 @@ async def log_requests(request, call_next):
     response = await call_next(request)
 
     return response
-
-
-is_production = os.getenv("ENVIRONMENT") == "production"
-
-if is_production:
-    # Mount the static files directory
-    app.mount("/static", StaticFiles(directory=os.environ["STATIC_DIR"]), name="static")
-    app.mount("/", StaticFiles(directory=os.environ["STATIC_DIR"], html=True), name="root")
 
 
 @app.get('/healthcheck', status_code=200)
@@ -55,5 +47,11 @@ async def image_to_text(image: UploadFile, language: str = Form(..., regex="^(en
     return {"text": text, "heatmap_base64": heatmap_base64}
 
 
+is_production = os.getenv("ENVIRONMENT") == "production"
+
+if is_production:
+    # Mount the static files directory
+    app.mount("/", StaticFiles(directory=os.environ["STATIC_DIR"], html=True), name="root")
+
 if __name__ == "__main__":
-    uvicorn.run("app:app", host="0.0.0.0", port=8000, reload=True)
+    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)

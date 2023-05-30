@@ -94,7 +94,6 @@ class ImageCaptioning:
         self.dec = Decoder(self.units, M, self.max_length)
         self.enc.load_weights(os.path.join(self.model_dir, 'encoder/'))
         self.dec.load_weights(os.path.join(self.model_dir, 'decoder/'))
-
     def evaluate(self, file):
         while True:
             attention_plot = np.zeros((self.max_length, 64))

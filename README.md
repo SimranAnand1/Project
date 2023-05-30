@@ -44,8 +44,10 @@ docker build -t image-captioning:latest .
 3. Run the Docker container:
 
 ```shell
-docker run -p 8000:8000 -e PORT 8000 image-captioning:latest
+docker run -e PORT=8000 -p 8000:8000 image-captioning:latest 
 ```
+
+Or, you can run the FastAPI backend and React frontend separately from their respective folders.
 
 ## Create Heroku project
 
