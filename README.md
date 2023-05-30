@@ -3,6 +3,12 @@
 This project is an Image Captioning service that generates textual captions for images. It uses a deep learning model to
 analyze the content of an image and generate a descriptive caption.
 
+## Live web app
+
+To access the React application, go to [image-captioner.herokuapp.com](https://image-captioner.herokuapp.com/).
+
+To access the Swagger API, go to [image-captioner.herokuapp.com/docs](https://image-captioner.herokuapp.com/docs).
+
 ## Features
 
 - Upload an image and get a textual caption describing the image content.
@@ -16,7 +22,7 @@ analyze the content of an image and generate a descriptive caption.
 ## Technologies Used
 
 - Python
-- Tensorflow 
+- Tensorflow
 - FastAPI
 - React
 - Docker
@@ -35,10 +41,18 @@ analyze the content of an image and generate a descriptive caption.
 docker build -t image-captioning:latest .
 ```
 
-3. Run the Docker container
+3. Run the Docker container:
 
 ```shell
 docker run -p 8000:8000 -e PORT 8000 image-captioning:latest
 ```
 
+## Create Heroku project
 
+```bash
+heroku login
+heroku create your-app-name
+heroku git:remote your-app-name
+heroku stack:set container
+git push heroku main
+```
