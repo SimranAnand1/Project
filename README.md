@@ -9,26 +9,8 @@ by the paper "Show Attend and Tell".
 To access the React application, go to [image-captioner.herokuapp.com](https://image-captioner.herokuapp.com/).
 
 To access the Swagger API, go to [image-captioner.herokuapp.com/docs](https://image-captioner.herokuapp.com/docs).
-
-## Model
-
-The architecture of the neural network consists of an encoder-decoder neural network. The encoder is responsible for
-extracting features from the image, while the decoder interprets these features to generate a sentence.
-
-The encoder utilizes a pre-trained Inception-V3 model, with the last fully connected layers removed, followed by a
-custom fully connected layer. This enables the encoder to extract meaningful features from the image.
-
-# Image Captioner
-
-This project is an Image Captioning service that generates textual captions for images. It uses deep neural networks to
-analyze the content of an image and generate a descriptive caption. Models are trained on the Flickr30k dataset,
-inspired by the paper "Show Attend and Tell".
-
-## Live web app
-
-To access the React application, go to [image-captioner.herokuapp.com](https://image-captioner.herokuapp.com/).
-
-To access the Swagger API, go to [image-captioner.herokuapp.com/docs](https://image-captioner.herokuapp.com/docs).
+> **_NOTE._** The web application may take a few seconds to start. Also, it may restart due to Heroku's memory
+> limits.
 
 ## Model
 
@@ -83,7 +65,7 @@ docker build -t image-captioning:latest .
 docker run -e PORT=8000 -p 8000:8000 image-captioning:latest 
 ```
 
-## Running locally in Terminal
+## Running locally in terminal
 
 Alternatively, you can run the FastAPI backend and React frontend separately from their respective folders. To run the
 FastAPI backend and React frontend separately, you can follow these steps:
