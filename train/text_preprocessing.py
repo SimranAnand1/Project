@@ -12,10 +12,9 @@ import copy
 
 
 class TextPreprocessor:
-    def __init__(self, workdir):
+    def __init__(self, workdir, text_dataset_name):
         self.workdir = workdir
-        self.image_path = os.path.join(workdir, 'flickr30k_images/flickr30k_images/')
-        self.text_path = os.path.join(workdir, 'flickr30k_images/output.csv')
+        self.text_path = os.path.join(workdir, text_dataset_name)
         self.df = pd.read_csv(self.text_path)
 
     def clean_text(self, text_path):
@@ -145,8 +144,14 @@ class TextPreprocessor:
 
 
 if __name__ == "__main__":
+    # Choose the dataset. Download ukrainian captions, and place them in workdir
+    ukrainian_captions_dataset_url = 'https://www.kaggle.com/datasets/vladislavalerievich/flickr30kukranian'
+    english_captions_dataset = 'flickr30k_images/output.csv'
+
     # Instantiate the TextPreprocessor class
-    preprocessor = TextPreprocessor(workdir='/path/to/workdir')
+    preprocessor = TextPreprocessor(workdir='/path/to/workdir', text_dataset_name=english_captions_dataset)
 
     # Train Word2Vec model and perform text preprocessing
     preprocessor.train_word2vec_model()
+
+
