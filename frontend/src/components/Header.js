@@ -7,7 +7,8 @@ const Header = () => {
     const renderTooltip = (props) => (
         <Tooltip id="text-on-hover-tooltip" {...props}>
             <p>Image Captioning is the process of <strong>generating textual description</strong> of an image. It uses
-                both Natural Language Processing and Computer Vision to generate the captions.</p>
+                both Natural Language Processing and Computer Vision to generate the captions. These models are trained
+                on Flickr30k dataset</p>
         </Tooltip>
     );
 
@@ -22,7 +23,7 @@ const Header = () => {
                 onMouseEnter={() => setShowTooltip(true)}
                 onMouseLeave={() => setShowTooltip(false)}
             >
-                Image Captioning
+                Image Captioner
             </h1>
         </OverlayTrigger>
     );
