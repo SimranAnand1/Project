@@ -5,7 +5,7 @@ COPY ./frontend/ /frontend/
 RUN npm install && npm run build
 
 # Stage 2: Build the backend
-FROM tiangolo/uvicorn-gunicorn-fastapi:python3.10
+FROM python:3.10-slim
 
 WORKDIR /app/
 COPY --from=frontend-build /frontend/build /app/static
@@ -24,3 +24,11 @@ ENV PYTHONUNBUFFERED 1
 ENV ENVIRONMENT=production
 ENV STATIC_DIR=/app/static
 ENV MODELS_PATH=/app/src/models
+
+# Expose the specified port
+ARG PORT
+ENV PORT=$PORT
+EXPOSE $PORT
+
+# Start the server
+CMD ["sh", "-c", "uvicorn main:app --workers 2 --host 0.0.0.0 --port $PORT"]
