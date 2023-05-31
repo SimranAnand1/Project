@@ -1,6 +1,6 @@
 {
-  "short_name": "Image Captioning Generator",
-  "name": "Image Captioning Generator",
+  "short_name": "Image Captioner",
+  "name": "Image Captioner",
   "icons": [
     {
       "src": "favicon.ico",
