@@ -31,4 +31,4 @@ ENV PORT=$PORT
 EXPOSE $PORT
 
 # Start the server
-CMD ["sh", "-c", "uvicorn main:app --workers 2 --host 0.0.0.0 --port $PORT"]
+CMD ["sh", "-c", "uvicorn main:app --host 0.0.0.0 --port $PORT"]
