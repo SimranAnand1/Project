@@ -1,6 +1,6 @@
 # Image Captioner
 
-This project is an Image Captioning service that generates textual captions for images. It uses a deep neural networks
+This project is an Image Captioning service that generates textual captions for images. It uses a deep neural network
 to analyze the content of an image and generate a descriptive caption. Models are trained on Flickr30k dataset. Inspired
 by the paper "Show Attend and Tell".
 
