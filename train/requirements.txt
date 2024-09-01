@@ -6,3 +6,4 @@ matplotlib
 scipy
 nltk
 scikit-learn
+uvicorn
