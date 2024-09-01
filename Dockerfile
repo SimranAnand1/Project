@@ -27,8 +27,8 @@ ENV MODELS_PATH=/app/src/models
 
 # Expose the specified port
 ARG PORT
-ENV PORT=$PORT
+ENV PORT=8000
 EXPOSE $PORT
 
 # Start the server
-CMD ["sh", "-c", "uvicorn main:app --host 0.0.0.0 --port $PORT"]
+CMD ["sh", "-c", "uvicorn main:app --host 0.0.0.0 --port ${PORT}"]

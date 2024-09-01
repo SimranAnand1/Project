@@ -1,0 +1,4 @@
+backend/__pycache__/
+backend/src/__pycache__/
+backend/src/utils/__pycache__/
+frontend/node_modules/
